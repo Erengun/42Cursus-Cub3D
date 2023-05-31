@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Lil_Dicks <.>                              +#+  +:+       +#+        */
+/*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 00:08:05 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/01/25 00:09:49 by Lil_Dicks        ###   ########.fr       */
+/*   Updated: 2023/05/31 15:05:08 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,3 @@ int	check_wall_xpm(t_data *data)
 	return (0);
 }
 
-t_control	ft_recontrol(t_control control)
-{
-	t_control	ret;
-
-	ret = (t_control){
-		.read_file = control.read_file * (control.read_file != -1),
-		.check_wall = control.check_wall * (control.check_wall != -1),
-		.get_map = control.get_map * (control.get_map != -1),
-		.set_map = control.set_map * (control.set_map != -1),
-		.player_pos = control.player_pos};
-	return (ret);
-}

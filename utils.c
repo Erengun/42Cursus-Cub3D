@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:58:30 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/05/31 14:49:35 by erengun          ###   ########.fr       */
+/*   Updated: 2023/05/31 14:58:39 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,38 +40,34 @@ void	render_window(t_data *data)
 	free(ray);
 }
 
-int	error_check(t_data *data, char *path)
+int error_check(t_data *data, char *path)
 {
-	int			fd;
-	t_control	control;
+    int fd;
+    t_control control;
 
-	fd = open(path, O_RDONLY);
-	if (fd < 0 || extension_check(path) == -1)
-	{
-		printf("Error\n");
-		return (-1);
-	}
-	control = (t_control){read_file(data, fd), check_wall_xpm(data),
-		ft_get_map(data, path), ft_set_map(data),
-		.player_pos = (data->player.pos.x == 0 && data->player.pos.y == 0)
-		* (xpm | map | int_map)};
-	if (control.read_file != 0 || control.check_wall != 0
-		|| control.get_map != 0 || control.set_map != 0
-		|| control.player_pos != 0)
-	{
-		control = ft_recontrol(control);
-		free_func(data, control.check_wall | control.get_map | \
-		control.player_pos | control.read_file | control.set_map);
-		printf("Error\n");
-		return (-1);
-	}
-	return (0);
+    fd = open(path, O_RDONLY);
+    if (fd < 0 || extension_check(path) == -1)
+    {
+        printf("Error\n");
+        return (-1);
+    }
+    control = (t_control){read_file(data, fd), check_wall_xpm(data),
+                          ft_get_map(data, path), ft_set_map(data),
+                          .player_pos = (data->player.pos.x == 0 && data->player.pos.y == 0)
+                                        * (xpm | map | int_map)};
+    if (check_conditions(control))
+    {
+        handle_error(data, control);
+        return (-1);
+    }
+    return (0);
 }
+
 
    int extension_check(char *path)
    {
        int len = ft_strlen(path);
-       if (len > 4 && ft_strcmp(path + len - 4, ".cub") == 0)
+       if (len > 4 && ft_strncmp(path + len - 4, ".cub", 4) == 0)
            return (0);
        return (-1);
    }

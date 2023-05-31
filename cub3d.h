@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Lil_Dicks <.>                              +#+  +:+       +#+        */
+/*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 01:30:37 by Lil_dicks         #+#    #+#             */
-/*   Updated: 2023/01/25 09:43:03 by Lil_Dicks        ###   ########.fr       */
+/*   Updated: 2023/05/31 14:56:35 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,4 +241,6 @@ int					draw_wall_s_img(int angle, double distance, t_data *data,
 int					draw_floor(int angle, int i, t_data *data);
 int					draw_ceiling(int angle, int i, int start, t_data *data);
 void				ft_move(int keycode, t_data *data);
+int 				check_conditions(t_control control);
+void 				handle_error(t_data *data, t_control control);
 #endif

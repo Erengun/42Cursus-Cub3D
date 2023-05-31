@@ -14,7 +14,7 @@ INC_LIBS		= -I./mathlib $(LIB_MATH) -I./libft $(LIB_FT)  -I./mlx $(LIB_MLX)
 LIB_MLX			= ./mlx/libmlx.a
 LIB_MATH		= ./mathlib/mathlib.a
 LIB_FT			= ./libft/libft.a
-SRCS_FILE		= color_check.c draw.c draw_others.c draw_walls.c get_next_line.c get_next_line_utils.c init.c keys.c main.c map_control_utils.c move.c read_map.c read_map_utils.c utils2.c utils.c valid_map.c
+SRCS_FILE		= color_check.c draw.c draw_others.c draw_walls.c get_next_line.c get_next_line_utils.c init.c keys.c main.c map_control_utils.c move.c read_map.c read_map_utils.c utils2.c utils.c valid_map.c handle_error.c
 OBJS_FILE		= $(SRCS_FILE:.c=.o)
 OBJS_DIR		= ./obj/
 OBJS			= $(addprefix $(OBJS_DIR), $(OBJS_FILE))
