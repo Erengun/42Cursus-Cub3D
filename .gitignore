@@ -50,3 +50,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# MLX
+*.m
+mlx/*
+
+# Exec
+Cub3D
