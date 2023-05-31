@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:58:30 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/05/31 14:58:39 by erengun          ###   ########.fr       */
+/*   Updated: 2023/05/31 20:26:00 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int error_check(t_data *data, char *path)
         printf("Error\n");
         return (-1);
     }
-    control = (t_control){read_file(data, fd), check_wall_xpm(data),
+    control = (t_control){ft_read_file(data, fd), ft_check_xpm_fd(data),
                           ft_get_map(data, path), ft_set_map(data),
                           .player_pos = (data->player.pos.x == 0 && data->player.pos.y == 0)
                                         * (xpm | map | int_map)};

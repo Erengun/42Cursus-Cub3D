@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 01:30:37 by Lil_dicks         #+#    #+#             */
-/*   Updated: 2023/05/31 14:56:35 by erengun          ###   ########.fr       */
+/*   Updated: 2023/05/31 20:26:00 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,7 +193,7 @@ void				ft_my_put_pixel(t_imgdata *img_data, int x, int y,
 unsigned int		ft_my_get_pixel(t_data *data, int x, int y, int i);
 void				render_window(t_data *data);
 double				deg2rad(int deg);
-int					read_file(t_data *data, int fd);
+int					ft_read_file(t_data *data, int fd);
 char				*last_trim(char *str);
 int					ft_check_rgb(char *s, char **find, int size, t_data *data);
 char				*ft_is_space(char *s);
@@ -227,7 +227,7 @@ int					check_all_way(t_data *data, int i, int j);
 int					ft_count_line(char *path);
 int					ft_multi_map(t_data *data, char **lines);
 int					draw_screen4(t_data *data, t_ray_data *ray_data);
-int					check_wall_xpm(t_data *data);
+int					ft_check_xpm_fd(t_data *data);
 int					ft_set_map(t_data *data);
 int					control(char *tmp, int flags, t_data *data, int i);
 int					draw_wall_n_img(int angle, double distance, t_data *data,

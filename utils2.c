@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 00:08:05 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/05/31 15:05:08 by erengun          ###   ########.fr       */
+/*   Updated: 2023/05/31 20:25:33 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	array_len(char **str)
 	return (i);
 }
 
-int	check_wall_xpm(t_data *data)
+int	ft_check_xpm_fd(t_data *data)
 {
 	int	i;
 	int	fd;

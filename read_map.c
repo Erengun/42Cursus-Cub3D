@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Lil_Dicks <.>                              +#+  +:+       +#+        */
+/*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 00:22:27 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/01/25 09:51:21 by Lil_Dicks        ###   ########.fr       */
+/*   Updated: 2023/05/31 20:26:00 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int	ft_get_map(t_data *data, char *path)
 	return (0);
 }
 
-int	read_file(t_data *data, int fd)
+int	ft_read_file(t_data *data, int fd)
 {
 	char	*line;
 
