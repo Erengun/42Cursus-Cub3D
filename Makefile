@@ -28,21 +28,11 @@ $(NAME): $(LIB_MATH) $(LIB_MLX) $(LIB_FT) $(OBJS)
 
 $(LIB_MATH) :
 	make -C ./mathlib
-
-$(LIB_MLX) :
-ifeq ($(OS), Darwin)
-	curl https://projects.intra.42.fr/uploads/document/document/12900/minilibx_opengl.tgz -o mlx.tgz
+	curl https://cdn.intra.42.fr/document/document/14741/minilibx_opengl.tgz -o mlx.tgz
 	tar -xf mlx.tgz
 	$(RM) mlx.tgz
 	mv ./minilibx_opengl_20191021 ./mlx
 	make -C ./mlx
-else
-	curl https://projects.intra.42.fr/uploads/document/document/12154/minilibx-linux.tgz -o mlx.tgz
-	tar -xf mlx.tgz
-	$(RM) mlx.tgz
-	mv ./minilibx-linux ./mlx
-	make -C ./mlx
-endif
 
 $(LIB_FT) :
 	make -C ./libft
