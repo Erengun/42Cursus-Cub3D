@@ -57,3 +57,7 @@ mlx/*
 
 # Exec
 Cub3D
+
+# vscode files
+.vscode/
+.vscode/settings.json
