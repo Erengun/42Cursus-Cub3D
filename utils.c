@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Lil_Dicks <.>                              +#+  +:+       +#+        */
+/*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:58:30 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/01/25 00:55:32 by Lil_Dicks        ###   ########.fr       */
+/*   Updated: 2023/05/31 14:49:35 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,14 @@ int	error_check(t_data *data, char *path)
 	return (0);
 }
 
-int	extension_check(char *path)
-{
-	if (ft_strlen(path) > 4 && path[ft_strlen(path) - 1] == 'b'
-		&& path[ft_strlen(path) - 2] == 'u' && path[ft_strlen(path) - 3] == 'c'
-		&& path[ft_strlen(path) - 4] == '.')
-		return (0);
-	return (-1);
-}
+   int extension_check(char *path)
+   {
+       int len = ft_strlen(path);
+       if (len > 4 && ft_strcmp(path + len - 4, ".cub") == 0)
+           return (0);
+       return (-1);
+   }
+
 
 void	ft_xpm_cleaner(t_data *data)
 {

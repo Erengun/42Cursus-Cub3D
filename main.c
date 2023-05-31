@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Lil_Dicks <.>                              +#+  +:+       +#+        */
+/*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 00:01:42 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/01/25 09:52:57 by Lil_Dicks        ###   ########.fr       */
+/*   Updated: 2023/05/31 14:40:53 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,7 @@ int	main(int ac, char *av[])
 	{
 		init_var(&data);
 		if (error_check(&data, av[1]) == -1)
-		{
 			return (1);
-		}
 		init_xpm(&data);
 		init_color(&data);
 		render_window(&data);

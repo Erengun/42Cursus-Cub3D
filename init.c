@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Lil_Dicks <.>                              +#+  +:+       +#+        */
+/*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 00:16:40 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/01/25 00:17:56 by Lil_Dicks        ###   ########.fr       */
+/*   Updated: 2023/05/31 14:41:22 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	init_var(t_data *data)
 	data->width = MAPWIDTH * 64;
 	data->height = MAPHEIGHT * 64;
 	data->win4 = mlx_new_window(data->mlx, GAMEWIDTH, GAMEHEIGHT,
-			"Real super Lil Dicks");
+			"CZN BURAK");
 	data->img4.img = mlx_new_image(data->mlx, GAMEWIDTH, GAMEHEIGHT);
 	data->img4.addr = mlx_get_data_addr(data->img4.img, &data->img4.bpp,
 			&data->img4.line_len, &data->img4.endian);
