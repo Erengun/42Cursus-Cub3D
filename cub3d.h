@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 01:30:37 by Lil_dicks         #+#    #+#             */
-/*   Updated: 2023/06/01 11:16:10 by erengun          ###   ########.fr       */
+/*   Updated: 2023/06/01 13:00:41 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@
 # define T_SKY 0x123456
 # define T_FLOOR 0x654321
 
-# ifdef __APPLE__
-
 typedef enum e_keys
 {
 	Key_W = 13,
@@ -48,21 +46,6 @@ typedef enum e_keys
 	key_lt = 123,
 	key_rt = 124
 }					t_keys;
-# else
-
-typedef enum e_keys
-{
-	Key_W = 119,
-	Key_A = 97,
-	Key_S = 115,
-	Key_D = 100,
-	Key_ESC = 65307,
-	key_up = 65362,
-	key_dn = 65364,
-	key_lt = 65361,
-	key_rt = 65363
-}					t_keys;
-# endif
 
 typedef enum e_map_xpm
 {
@@ -145,6 +128,11 @@ typedef struct s_imgdata
 	int				endian;
 }					t_imgdata;
 
+typedef struct s_direction
+{
+	char			c;
+	int				angle;
+}				t_direction;
 typedef struct s_player
 {
 	t_vector2		pos;
@@ -200,9 +188,6 @@ int					check_null(t_data *data);
 int					ft_get_map(t_data *data, char *path);
 int					array_len(char **str);
 int					longest_line(t_data *data);
-int					top_wall(t_data *data);
-int					bottom_wall(t_data *data);
-int					left_wall(t_data *data);
 int					ft_exit(t_data *data);
 int					draw_walls(t_data *data, t_ray_data *ray_data,
 						double distance);
@@ -236,8 +221,9 @@ int					draw_wall_s_img(int angle, double distance, t_data *data,
 int					draw_floor(int angle, int i, t_data *data);
 int					draw_ceiling(int angle, int i, int start, t_data *data);
 void				ft_move(int keycode, t_data *data);
-int 				check_conditions(t_control control);
-void 				handle_error(t_data *data, t_control control);
-int 				count_lines(int fd);
-int 				read_lines(char *path, char ***lines);
+int					check_conditions(t_control control);
+void				handle_error(t_data *data, t_control control);
+int					count_lines(int fd);
+int					read_lines(char *path, char ***lines);
+void				update_direction(t_data *data, int i, int j, int angle);
 #endif

@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:58:30 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/06/01 12:28:04 by erengun          ###   ########.fr       */
+/*   Updated: 2023/06/01 12:59:04 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,29 +40,6 @@ void	render_window(t_data *data)
 	free(ray);
 }
 
-//TODO printf serbest mi?
-int	error_check(t_data *data, char *path)
-{
-	int			fd;
-	t_control	control;
-
-	fd = open(path, O_RDONLY);
-	if (fd < 0 || extension_check(path) == -1)
-	{
-		printf("Error\n");
-		return (-1);
-	}
-	control = (t_control){ft_read_file(data, fd), ft_check_xpm_fd(data),
-		ft_get_map(data, path), ft_set_map(data),
-		.player_pos = (data->player.pos.x == 0 && data->player.pos.y == 0)
-		* (xpm | map | int_map)};
-	if (check_conditions(control))
-	{
-		handle_error(data, control);
-		return (-1);
-	}
-	return (0);
-}
 
 int	extension_check(char *path)
 {
@@ -84,4 +61,12 @@ void	ft_xpm_cleaner(t_data *data)
 		free(data->map_data.xpm_dir[2]);
 	if (data->map_data.xpm_dir[3])
 		free(data->map_data.xpm_dir[3]);
+}
+
+void	update_direction(t_data *data, int i, int j, int angle)
+{
+	data->player.direction = angle;
+	data->player.pos.x = (double)j + .5;
+	data->player.pos.y = (double)i + .5;
+	data->map_data.map[i][j] = '0';
 }

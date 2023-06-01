@@ -6,40 +6,50 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 00:16:40 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/05/31 14:41:22 by erengun          ###   ########.fr       */
+/*   Updated: 2023/06/01 12:58:38 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+t_direction	*init_directions(t_direction *directions)
+{
+	directions[0] = (t_direction){'N', 270};
+	directions[1] = (t_direction){'W', 180};
+	directions[2] = (t_direction){'E', 0};
+	directions[3] = (t_direction){'S', 90};
+
+	return (directions);
+}
+
 int	init_direction(t_data *data, int i, int j)
 {
-	static int	flags;
+	static int			flags;
+	static t_direction	directions[4];
+	int					k;
 
-	if (data->map_data.map[i][j] == 'N')
-		data->player.direction = 270;
-	else if (data->map_data.map[i][j] == 'W')
-		data->player.direction = 180;
-	else if (data->map_data.map[i][j] == 'E')
-		data->player.direction = 0;
-	else if (data->map_data.map[i][j] == 'S')
-		data->player.direction = 90;
-	else if ((data->map_data.map[i][j] != '0' && data->map_data.map[i][j] != '1'
-				&& data->map_data.map[i][j] != 0)
-			&& ft_isascii(data->map_data.map[i][j]))
-		return (-1);
-	if (data->map_data.map[i][j] == 'N' || data->map_data.map[i][j] == 'W'
-		|| data->map_data.map[i][j] == 'E' || data->map_data.map[i][j] == 'S')
+	init_directions(directions);
+	k = 0;
+	while (k < 4)
 	{
-		flags += 1;
-		data->player.pos.x = (double)j + .5;
-		data->player.pos.y = (double)i + .5;
-		data->map_data.map[i][j] = '0';
+		if (data->map_data.map[i][j] == directions[k].c)
+		{
+			update_direction(data, i, j, directions[k].angle);
+			flags += 1;
+			break ;
+		}
+		k++;
 	}
+	if (k == 4 && (data->map_data.map[i][j] != '0' 
+		&& data->map_data.map[i][j] != '1'
+		&& data->map_data.map[i][j] != 0)
+		&& ft_isascii(data->map_data.map[i][j]))
+		return ((-1));
 	if (flags > 1)
-		return (-1);
-	return (0);
+		return ((-1));
+	return ((0));
 }
+
 
 void	init_xpm(t_data *data)
 {
