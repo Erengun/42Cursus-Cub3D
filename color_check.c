@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 00:21:43 by erengun           #+#    #+#             */
-/*   Updated: 2023/06/01 15:15:01 by erengun          ###   ########.fr       */
+/*   Updated: 2023/06/01 15:21:26 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,12 @@ int	check_color(char *s, t_data *data, int color_type)
 	tmp = ft_substr(s, 0, ft_strlen(s) - 1);
 	tmp = last_trim(tmp);
 	code = ft_split(tmp, ',');
-
 	if (color_nbr_check(code) == -1)
 	{
 		free(tmp);
 		array_cleaner((void **)code);
 		return (-1);
 	}
-
 	data->map_data.colors[color_type][0] = ft_atoi(code[0]);
 	data->map_data.colors[color_type][1] = ft_atoi(code[1]);
 	data->map_data.colors[color_type][2] = ft_atoi(code[2]);
@@ -95,4 +93,3 @@ int	ft_check_rgb(char *s, char **find, int size, t_data *data)
 	}
 	return (0);
 }
-

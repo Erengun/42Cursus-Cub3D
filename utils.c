@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 23:58:30 by erengun           #+#    #+#             */
-/*   Updated: 2023/06/01 15:16:25 by erengun          ###   ########.fr       */
+/*   Updated: 2023/06/01 15:20:27 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,9 @@ void	render_window(t_data *data)
 	free(ray);
 }
 
-
 int	extension_check(char *path)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen(path);
 	if (len > 4 && ft_strncmp(path + len - 4, ".cub", 4) == 0)

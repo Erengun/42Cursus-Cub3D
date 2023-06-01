@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 00:16:40 by erengun           #+#    #+#             */
-/*   Updated: 2023/06/01 15:15:01 by erengun          ###   ########.fr       */
+/*   Updated: 2023/06/01 15:21:07 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ t_direction	*init_directions(t_direction *directions)
 	directions[1] = (t_direction){'W', 180};
 	directions[2] = (t_direction){'E', 0};
 	directions[3] = (t_direction){'S', 90};
-
 	return (directions);
 }
 
@@ -40,7 +39,7 @@ int	init_direction(t_data *data, int i, int j)
 		}
 		k++;
 	}
-	if (k == 4 && (data->map_data.map[i][j] != '0' 
+	if (k == 4 && (data->map_data.map[i][j] != '0'
 		&& data->map_data.map[i][j] != '1'
 		&& data->map_data.map[i][j] != 0)
 		&& ft_isascii(data->map_data.map[i][j]))
@@ -49,7 +48,6 @@ int	init_direction(t_data *data, int i, int j)
 		return ((-1));
 	return ((0));
 }
-
 
 void	init_xpm(t_data *data)
 {

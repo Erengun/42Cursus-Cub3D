@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 00:31:38 by erengun           #+#    #+#             */
-/*   Updated: 2023/06/01 15:15:01 by erengun          ###   ########.fr       */
+/*   Updated: 2023/06/01 15:19:41 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int	check_wall(t_data *data)
 		{
 			if (is_border_wall(data, i, j) == -1)
 				return (-1);
-
 			if (is_valid_char(data->map_data.map[i][j]))
 			{
 				if (is_valid_direction(data, i, j) == -1)
@@ -63,8 +62,6 @@ int	check_wall(t_data *data)
 	}
 	return (0);
 }
-
-
 
 int	ft_multi_map(t_data *data, char **lines)
 {

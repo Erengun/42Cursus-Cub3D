@@ -47,6 +47,9 @@ fclean: clean
 	$(RM) ./mlx
 	make fclean -C ./mathlib
 
+run: all
+	./$(NAME) maps/map.cub
+
 re: fclean all
 
 norm:
