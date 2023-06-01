@@ -4,11 +4,7 @@ CFLAGS			= -Wall -Wextra -Werror -O3
 OUTFILE			= -o $(NAME)
 OS 				:= $(shell uname)
 
-ifeq ($(OS), Darwin)
-	MLXFLAGS	= -framework OpenGL -framework AppKit
-else
-	MLXFLAGS 	= -lm -lXext -lX11
-endif
+MLXFLAGS	= -framework OpenGL -framework AppKit
 
 INC_LIBS		= -I./mathlib $(LIB_MATH) -I./libft $(LIB_FT)  -I./mlx $(LIB_MLX)
 LIB_MLX			= ./mlx/libmlx.a
@@ -53,13 +49,8 @@ fclean: clean
 
 re: fclean all
 
-M = "Auto Commit (I'm lazy for write commit :D)"
-
-git: fclean
-	git add .
-	git status
-	git commit -m $(M)
-	git push
+norm:
+	norminette $(SRCS_FILE) cub3d.h
 
 .PHONY: all clean fclean re
 

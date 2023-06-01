@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:58:30 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/05/31 20:26:00 by erengun          ###   ########.fr       */
+/*   Updated: 2023/06/01 12:02:40 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,38 +40,37 @@ void	render_window(t_data *data)
 	free(ray);
 }
 
-int error_check(t_data *data, char *path)
+//TODO printf serbest mi?
+int	error_check(t_data *data, char *path)
 {
-    int fd;
-    t_control control;
+	int			fd;
+	t_control	control;
 
-    fd = open(path, O_RDONLY);
-    if (fd < 0 || extension_check(path) == -1)
-    {
-        printf("Error\n");
-        return (-1);
-    }
-    control = (t_control){ft_read_file(data, fd), ft_check_xpm_fd(data),
-                          ft_get_map(data, path), ft_set_map(data),
-                          .player_pos = (data->player.pos.x == 0 && data->player.pos.y == 0)
-                                        * (xpm | map | int_map)};
-    if (check_conditions(control))
-    {
-        handle_error(data, control);
-        return (-1);
-    }
-    return (0);
+	fd = open(path, O_RDONLY);
+	if (fd < 0 || extension_check(path) == -1)
+	{
+		printf("Error\n");
+		return (-1);
+	}
+	control = (t_control){ft_read_file(data, fd), ft_check_xpm_fd(data),
+		ft_get_map(data, path), ft_set_map(data),
+		.player_pos = (data->player.pos.x == 0 && data->player.pos.y == 0)
+		* (xpm | map | int_map)};
+	if (check_conditions(control))
+	{
+		handle_error(data, control);
+		return (-1);
+	}
+	return (0);
 }
 
-
-   int extension_check(char *path)
-   {
-       int len = ft_strlen(path);
-       if (len > 4 && ft_strncmp(path + len - 4, ".cub", 4) == 0)
-           return (0);
-       return (-1);
-   }
-
+	int extension_check(char *path)
+	{
+		int len = ft_strlen(path);
+		if (len > 4 && ft_strncmp(path + len - 4, ".cub", 4) == 0)
+			return (0);
+		return (-1);
+	}
 
 void	ft_xpm_cleaner(t_data *data)
 {

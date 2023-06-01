@@ -6,12 +6,13 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 00:08:05 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/06/01 11:17:08 by erengun          ###   ########.fr       */
+/*   Updated: 2023/06/01 12:07:52 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+//TODO: free_func is not working properly
 void	free_func(t_data *data, int control_data)
 {
 	if (control_data & xpm)
@@ -56,16 +57,16 @@ int	ft_check_xpm_fd(t_data *data)
 
 int	count_lines(int fd)
 {
-    char *line;
-    int line_count;
-	
+	char	*line;
+	int		line_count;
+
 	line_count = 0;
-    line = get_next_line(fd);
-    while (line)
-    {
-        ++line_count;
-        free(line);
-        line = get_next_line(fd);
-    }
-    return (line_count);
+	line = get_next_line(fd);
+	while (line)
+	{
+		++line_count;
+		free(line);
+		line = get_next_line(fd);
+	}
+	return (line_count);
 }
