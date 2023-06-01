@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 00:22:27 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/05/31 20:26:00 by erengun          ###   ########.fr       */
+/*   Updated: 2023/06/01 11:13:01 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,26 +89,23 @@ int	control(char *tmp, int flags, t_data *data, int i)
 	return (flags + 1);
 }
 
-int	ft_get_map(t_data *data, char *path)
+int ft_get_map(t_data *data, char *path)
 {
-	int		total_line;
-	char	**lines;
+    int total_line;
+    char **lines;
 
-	total_line = ft_count_line(path);
-	if (total_line == -1)
-		return (-1);
-	data->map_data.map = ft_calloc(total_line, sizeof(char *));
-	lines = get_lines(path, total_line);
-	if (!lines)
-		return (-1);
-	if (ft_multi_map(data, lines) == -1)
-	{
-		array_cleaner((void **)lines);
-		return (-1);
-	}
-	if (put_map(data, lines) == -1)
-		return (map);
-	return (0);
+    total_line = read_lines(path, &lines);
+    if (total_line == -1)
+        return -1;
+    data->map_data.map = ft_calloc(total_line, sizeof(char *));
+    if (ft_multi_map(data, lines) == -1)
+    {
+        array_cleaner((void **)lines);
+        return -1;
+    }
+    if (put_map(data, lines) == -1)
+        return -1;
+    return (0);
 }
 
 int	ft_read_file(t_data *data, int fd)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Lil_Dicks <.>                              +#+  +:+       +#+        */
+/*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 00:31:38 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/01/25 04:55:14 by Lil_Dicks        ###   ########.fr       */
+/*   Updated: 2023/06/01 11:15:27 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ int	ft_multi_map(t_data *data, char **lines)
 		i++;
 	}
 	if (flag == 1)
-	{
 		data->map_data.map_end = i -1;
-	}
 	return (0);
 }

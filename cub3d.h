@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 01:30:37 by Lil_dicks         #+#    #+#             */
-/*   Updated: 2023/05/31 20:26:00 by erengun          ###   ########.fr       */
+/*   Updated: 2023/06/01 11:16:10 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,8 +186,6 @@ typedef struct s_data
 
 int					key_press_func(int keycode, t_data *data);
 t_ray_data			calculate_ray(t_data *data, double angle);
-void				draw_outlines(t_data *data);
-void				draw_square(int x, int y, t_data *data);
 void				ft_my_put_pixel(t_imgdata *img_data, int x, int y,
 						int color);
 unsigned int		ft_my_get_pixel(t_data *data, int x, int y, int i);
@@ -198,7 +196,6 @@ char				*last_trim(char *str);
 int					ft_check_rgb(char *s, char **find, int size, t_data *data);
 char				*ft_is_space(char *s);
 void				array_cleaner(void **arr);
-int					color_bitwise(int r, int g, int b);
 int					check_null(t_data *data);
 int					ft_get_map(t_data *data, char *path);
 int					array_len(char **str);
@@ -210,7 +207,6 @@ int					ft_exit(t_data *data);
 int					draw_walls(t_data *data, t_ray_data *ray_data,
 						double distance);
 int					error_check(t_data *data, char *path);
-t_control			ft_recontrol(t_control control);
 int					extension_check(char *path);
 void				ft_xpm_cleaner(t_data *data);
 void				free_func(t_data *data, int control_data);
@@ -224,7 +220,6 @@ int					get_map_height(char *path);
 int					put_map(t_data *data, char **lines);
 int					check_wall(t_data *data);
 int					check_all_way(t_data *data, int i, int j);
-int					ft_count_line(char *path);
 int					ft_multi_map(t_data *data, char **lines);
 int					draw_screen4(t_data *data, t_ray_data *ray_data);
 int					ft_check_xpm_fd(t_data *data);
@@ -243,4 +238,6 @@ int					draw_ceiling(int angle, int i, int start, t_data *data);
 void				ft_move(int keycode, t_data *data);
 int 				check_conditions(t_control control);
 void 				handle_error(t_data *data, t_control control);
+int 				count_lines(int fd);
+int 				read_lines(char *path, char ***lines);
 #endif
