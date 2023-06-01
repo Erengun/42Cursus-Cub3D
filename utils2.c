@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 00:08:05 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/06/01 12:07:52 by erengun          ###   ########.fr       */
+/*   Updated: 2023/06/01 12:37:53 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	free_func(t_data *data, int control_data)
 {
 	if (control_data & xpm)
 		ft_xpm_cleaner(data);
-	if (control_data & int_map)
-		array_cleaner((void **)data->map_data.int_map);
 	if (control_data & map)
 		array_cleaner((void **)data->map_data.map);
 }

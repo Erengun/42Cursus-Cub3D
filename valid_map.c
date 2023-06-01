@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 00:31:38 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/06/01 12:24:21 by erengun          ###   ########.fr       */
+/*   Updated: 2023/06/01 12:26:25 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	ft_multi_map(t_data *data, char **lines)
 {
 	int		flag;
 	int		i;
-	char 	*tmp;
+	char	*tmp;
 
 	i = 0;
 	flag = 0;

@@ -5,6 +5,12 @@
 		"array": "c",
 		"string": "c",
 		"string_view": "c",
-		"vector": "c"
+		"vector": "c",
+		"__hash_table": "c",
+		"__node_handle": "c",
+		"functional": "c",
+		"type_traits": "c",
+		"unordered_map": "c",
+		"version": "c"
 	}
 }

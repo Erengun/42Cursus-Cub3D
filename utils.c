@@ -6,7 +6,7 @@
 /*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:58:30 by Lil_Dicks         #+#    #+#             */
-/*   Updated: 2023/06/01 12:02:40 by erengun          ###   ########.fr       */
+/*   Updated: 2023/06/01 12:28:04 by erengun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,15 @@ int	error_check(t_data *data, char *path)
 	return (0);
 }
 
-	int extension_check(char *path)
-	{
-		int len = ft_strlen(path);
-		if (len > 4 && ft_strncmp(path + len - 4, ".cub", 4) == 0)
-			return (0);
-		return (-1);
-	}
+int	extension_check(char *path)
+{
+	int len;
+
+	len = ft_strlen(path);
+	if (len > 4 && ft_strncmp(path + len - 4, ".cub", 4) == 0)
+		return (0);
+	return (-1);
+}
 
 void	ft_xpm_cleaner(t_data *data)
 {
