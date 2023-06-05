@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 02:28:54 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/09 02:45:33 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/09 17:34:59 by egun              #+#    #+#             */
+/*   Updated: 2022/01/09 17:40:01 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!*lst)
-	{
-		*lst = new;
-		return ;
-	}
-	if (!new)
-		return ;
 	new -> next = *lst;
 	*lst = new;
 }

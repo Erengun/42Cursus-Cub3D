@@ -48,7 +48,7 @@ fclean: clean
 	make fclean -C ./mathlib
 
 run: all
-	./$(NAME) maps/map.cub
+	./$(NAME) maps/mapDefault.cub
 
 re: fclean all
 

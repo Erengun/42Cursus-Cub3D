@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/07 14:08:38 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/07 16:22:25 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/07 16:22:37 by egun              #+#    #+#             */
+/*   Updated: 2022/01/10 17:55:59 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	ft_putendl_fd(char const *s, int fd)
 	{
 		while (*s)
 		{
-			ft_putchar_fd(*s, fd);
+			ft_putchar_fd (*s, fd);
 			s++;
 		}
-		ft_putchar_fd('\n', fd);
+		ft_putchar_fd ('\n', fd);
 	}
 }

@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 19:52:17 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/12 12:17:22 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/06 13:41:29 by egun              #+#    #+#             */
+/*   Updated: 2022/01/07 11:20:54 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	checker(char c, char const *set)
+int	checker(char c, char const *s2)
 {
 	int	i;
 
 	i = 0;
-	while (set[i])
+	while (s2[i])
 	{
-		if (set[i++] == c)
+		if (s2[i++] == c)
 			return (1);
 	}
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *s2)
 {
 	char	*str;
 	int		i;
@@ -34,16 +34,19 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	k = 0;
-	if (s1 == 0 || set == 0)
+	if (s1 == 0 || s2 == 0)
 		return (NULL);
 	j = ft_strlen(s1);
-	while (s1[i] && checker(s1[i], set))
+	while (s1[i] && checker(s1[i], s2))
 		i++;
-	while (j > i && checker(s1[j - 1], set))
+	while (j > i && checker(s1[j - 1], s2))
 		j--;
 	str = (char *)malloc(sizeof(char) * (j - i + 1));
 	if (!str)
+	{
+		free(str);
 		return (NULL);
+	}
 	while (i < j)
 		str[k++] = s1[i++];
 	str[k] = '\0';

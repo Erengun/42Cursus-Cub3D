@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 04:12:49 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/09 04:25:53 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/10 15:08:31 by egun              #+#    #+#             */
+/*   Updated: 2022/01/12 16:27:53 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 	if (!lst || !del)
 		return ;
 	del(lst->content);
+	lst->content = NULL;
+	lst->next = NULL;
 	free(lst);
+	lst = NULL;
 }

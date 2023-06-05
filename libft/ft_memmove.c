@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/07 12:33:14 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/13 15:01:29 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/04 16:25:59 by egun              #+#    #+#             */
+/*   Updated: 2022/01/12 14:45:51 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		while (++i <= len)
 			dest[len - i] = src2[len - i];
 	else
-		return (ft_memcpy(dst, src, len));
+		while (len-- > 0)
+			*(dest++) = *(src2++);
 	return (dst);
 }

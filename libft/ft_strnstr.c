@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 20:20:56 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/13 11:46:17 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/04 10:23:08 by egun              #+#    #+#             */
+/*   Updated: 2022/01/10 18:02:26 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		while (haystack[hayint + needint] == needle[needint]
 			&& needle[needint] != 0 && needint + hayint < len)
 			needint++;
-		if (!needle[needint])
+		if (needint == ft_strlen(needle))
 			return ((char *)&haystack[hayint]);
 		hayint++;
 	}

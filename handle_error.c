@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 14:54:35 by erengun           #+#    #+#             */
-/*   Updated: 2023/06/01 12:47:34 by erengun          ###   ########.fr       */
+/*   Created: 2023/05/31 14:54:35 by egun              #+#    #+#             */
+/*   Updated: 2023/06/01 18:07:22 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	handle_error(t_data *data, t_control control)
 	free_func(data, control.read_file | control.get_map | control.set_map);
 }
 
-//TODO printf serbest mi?
 int	error_check(t_data *data, char *path)
 {
 	int			fd;

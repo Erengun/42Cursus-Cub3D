@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 11:50:07 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/07 12:23:44 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/05 17:17:13 by egun              #+#    #+#             */
+/*   Updated: 2022/01/10 17:45:53 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,29 @@
 
 int	ft_atoi(const char *str)
 {
-	long long int	number;
-	int				sign;
+	int		i;
+	int		sign;
+	long	number;
 
-	number = 0;
 	sign = 1;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '+' || *str == '-')
-		str++;
-	while (ft_isdigit(*str))
+	number = 0;
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		number = (number * 10) + (*str - '0') * sign;
-		str++;
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (ft_isdigit(str[i]))
+	{
+		number = (number * 10) + (str[i] - 48) * sign;
 		if (number > 2147483647)
 			return (-1);
 		if (number < -2147483648)
 			return (0);
+		i++;
 	}
 	return (number);
 }

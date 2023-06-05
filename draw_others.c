@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_others.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 23:49:26 by erengun           #+#    #+#             */
-/*   Updated: 2023/06/01 15:16:25 by erengun          ###   ########.fr       */
+/*   Created: 2023/05/24 23:49:26 by egun              #+#    #+#             */
+/*   Updated: 2023/06/01 18:09:29 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	draw_floor(int angle, int i, t_data *data)
 	return (i);
 }
 
-void	draw_from_right_line(double distance, int i, t_data *data,
+void	draw_from_line(double distance, int i, t_data *data,
 		t_ray_data *ray_data)
 {
 	if (ray_data[i].last_location.x == ray_data[i].wall_location.x + 1
@@ -51,27 +51,10 @@ void	draw_from_right_line(double distance, int i, t_data *data,
 	else if (ray_data[i].last_location.x == ray_data[i].wall_location.x
 		&& ray_data[i].last_location.y == ray_data[i].wall_location.y + 1)
 		draw_wall_s_img(data->dray, distance, data, ray_data[i]);
-	else if (i < 600)
-		draw_from_right_line(distance, i + 1, data, ray_data);
-}
-
-void	draw_from_left_line(double distance, int i, t_data *data,
-		t_ray_data *ray_data)
-{
-	if (ray_data[i].last_location.x == ray_data[i].wall_location.x + 1
-		&& ray_data[i].last_location.y == ray_data[i].wall_location.y)
-		draw_wall_e_img(data->dray, distance, data, ray_data[i]);
-	else if (ray_data[i].last_location.x == ray_data[i].wall_location.x
-		&& ray_data[i].last_location.y + 1 == ray_data[i].wall_location.y)
-		draw_wall_n_img(data->dray, distance, data, ray_data[i]);
-	else if (ray_data[i].last_location.x + 1 == ray_data[i].wall_location.x
-		&& ray_data[i].last_location.y == ray_data[i].wall_location.y)
-		draw_wall_w_img(data->dray, distance, data, ray_data[i]);
-	else if (ray_data[i].last_location.x == ray_data[i].wall_location.x
-		&& ray_data[i].last_location.y == ray_data[i].wall_location.y + 1)
-		draw_wall_s_img(data->dray, distance, data, ray_data[i]);
-	else if (i > 0)
-		draw_from_left_line(distance, i - 1, data, ray_data);
+	else if (i > 0 && data->dray >= 300)
+		draw_from_line(distance, i - 1, data, ray_data);
+	else if (i < 600 && data->dray < 300)
+		draw_from_line(distance, i + 1, data, ray_data);
 }
 
 int	draw_screen4(t_data *data, t_ray_data *ray_data)
@@ -86,9 +69,9 @@ int	draw_screen4(t_data *data, t_ray_data *ray_data)
 		if (!draw_walls(data, ray_data, distance))
 			;
 		else if (data->dray < 300)
-			draw_from_right_line(distance, data->dray + 1, data, ray_data);
+			draw_from_line(distance, data->dray + 1, data, ray_data);
 		else if (data->dray >= 300)
-			draw_from_left_line(distance, data->dray - 1, data, ray_data);
+			draw_from_line(distance, data->dray - 1, data, ray_data);
 		data->dray++;
 	}
 	mlx_put_image_to_window(data->mlx, data->win4, data->img4.img, 0, 0);

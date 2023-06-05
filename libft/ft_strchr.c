@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 10:32:27 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/08 10:39:07 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/03 17:09:36 by egun              #+#    #+#             */
+/*   Updated: 2022/01/10 18:28:55 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,13 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	return (ft_memchr(s, c, ft_strlen(s) + 1));
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if (c == 0)
+		return ((char *)s);
+	return (NULL);
 }

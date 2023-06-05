@@ -3,33 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 14:38:32 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/13 12:43:00 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/10 15:28:45 by egun              #+#    #+#             */
+/*   Updated: 2022/01/12 19:24:14 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *))
 {
-	t_list	*result;
-	t_list	*node;
+	t_list	*iter;
+	t_list	*newlist;
 
-	if (!lst || !f)
+	if (!lst)
 		return (NULL);
-	result = 0;
+	newlist = 0;
 	while (lst)
 	{
-		node = ft_lstnew(f(lst->content));
-		if (!node)
+		iter = ft_lstnew(f(lst -> content));
+		if (!iter)
 		{
-			ft_lstclear(&result, del);
-			return (0);
+			ft_lstclear (&newlist, del);
+			return (NULL);
 		}
-		ft_lstadd_back(&result, node);
-		lst = lst->next;
+		ft_lstadd_back (&newlist, iter);
+		lst = lst -> next;
 	}
-	return (result);
+	return (newlist);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 00:01:42 by erengun           #+#    #+#             */
-/*   Updated: 2023/06/01 15:15:01 by erengun          ###   ########.fr       */
+/*   Created: 2023/05/25 00:01:42 by egun              #+#    #+#             */
+/*   Updated: 2023/06/01 18:10:09 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,6 @@ int	main(int ac, char *av[])
 		mlx_hook(data.win4, 17, 0, ft_exit, &data);
 		mlx_loop(data.mlx);
 	}
-	else
-	{
-		printf("Error\n");
-		return (1);
-	}
-	return (0);
+	printf("Error\n");
+	return (1);
 }

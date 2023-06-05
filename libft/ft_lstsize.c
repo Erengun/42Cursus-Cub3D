@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 02:47:31 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/09 16:00:47 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/09 17:41:25 by egun              #+#    #+#             */
+/*   Updated: 2022/01/09 18:06:02 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (lst)
 	{
-		lst = lst->next;
+		lst = lst -> next;
 		i++;
 	}
 	return (i);

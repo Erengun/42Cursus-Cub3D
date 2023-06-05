@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 14:13:44 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/09 14:22:14 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/10 15:24:39 by egun              #+#    #+#             */
+/*   Updated: 2022/01/10 17:52:15 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	while (lst)
 	{
-		f(lst->content);
-		lst = lst->next;
+		f (lst -> content);
+		lst = lst -> next;
 	}
 }

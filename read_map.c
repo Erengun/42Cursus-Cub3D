@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 00:22:27 by erengun           #+#    #+#             */
-/*   Updated: 2023/06/01 15:15:01 by erengun          ###   ########.fr       */
+/*   Created: 2023/05/25 00:22:27 by egun              #+#    #+#             */
+/*   Updated: 2023/06/01 18:10:35 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,11 @@ int	ft_read_file(t_data *data, int fd)
 	char	*line;
 
 	line = get_next_line(fd);
+	if (!line)
+	{
+		printf("Error\n");
+		exit(1);
+	}
 	while (line)
 	{
 		if (ft_check_xpm(line, (char *[]){"NO", "EA", "WE", "SO"}, data) == -1

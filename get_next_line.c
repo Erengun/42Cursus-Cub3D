@@ -3,51 +3,121 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 23:57:35 by erengun           #+#    #+#             */
-/*   Updated: 2023/06/01 15:16:25 by erengun          ###   ########.fr       */
+/*   Created: 2022/01/15 18:24:32 by egun              #+#    #+#             */
+/*   Updated: 2022/01/29 20:17:55 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*first_line(int fd, char *buffer)
+int	check_error(int a, char *str, char *buffer)
 {
-	char	*buff;
-	int		rd_byte;
-
-	rd_byte = 1;
-	buff = malloc (sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buff)
-		return (NULL);
-	while (!find_nl_char(buffer) && rd_byte != 0)
+	if (a < 0)
 	{
-		rd_byte = read (fd, buff, BUFFER_SIZE);
-		if (rd_byte == -1)
-		{
-			free (buffer);
-			free (buff);
-			return (NULL);
-		}
-		buff[rd_byte] = '\0';
-		buffer = strjoin(buffer, buff);
+		free (str);
+		free (buffer);
+		return (0);
 	}
-	free (buff);
-	return (buffer);
+	return (1);
+}
+
+char	*getstr(int fd, char *str)
+{
+	int		a;
+	char	*buffer;
+	char	*s;
+
+	if (!str)
+		str = ft_strdup("");
+	a = 1;
+	buffer = malloc(BUFFER_SIZE + 1);
+	if (!buffer)
+		return (NULL);
+	while ((a != 0) && !(ft_strchr(str, '\n')))
+	{
+		a = read(fd, buffer, BUFFER_SIZE);
+		if (a == 0)
+			break ;
+		if (!check_error(a, str, buffer))
+			return (NULL);
+		buffer[a] = '\0';
+		s = ft_strjoin(str, buffer);
+		free(str);
+		str = s;
+	}
+	free(buffer);
+	return (str);
+}
+
+char	*getnewline(char *str)
+{
+	char	*ptr;
+	int		len;
+
+	if (!str)
+		return (NULL);
+	if (!*str)
+		return (NULL);
+	ptr = ft_strchr(str, '\n');
+	if (!ptr)
+		return (ft_strdup(str));
+	ptr++;
+	if (!*ptr)
+		return (ft_strdup(str));
+	len = ft_strlen(str) - ft_strlen(ptr);
+	return (ft_substr(str, 0, len));
+}
+
+char	*getremain(char *str)
+{
+	char	*ptr;
+
+	ptr = ft_strchr(str, '\n');
+	if (!ptr)
+	{
+		free(str);
+		return (NULL);
+	}
+	ptr++;
+	if (!(*ptr))
+	{
+		free(str);
+		return (NULL);
+	}
+	ptr = ft_strdup(ptr);
+	free (str);
+	return (ptr);
 }
 
 char	*get_next_line(int fd)
 {
+	static char	*str;
 	char		*line;
-	static char	*buffer;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);
-	buffer = first_line(fd, buffer);
-	if (buffer == NULL)
+	str = getstr(fd, str);
+	if (!str)
 		return (NULL);
-	line = get_new_line(buffer);
-	buffer = get_new_buffer(buffer);
+	line = getnewline(str);
+	str = getremain(str);
 	return (line);
 }
+
+// #include <fcntl.h>
+// #include <stdio.h>
+
+// int   main()
+// {
+//   int   fd;
+//   char *c;
+//   fd = open("test.txt", O_RDWR);
+//   c = get_next_line(fd);
+//   while(c)
+//   {
+//     printf("%s",c);
+//     free(c);
+//       c = get_next_line(fd);
+//   }
+//   system("leaks a.out");
+// }

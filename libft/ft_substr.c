@@ -3,38 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 17:18:43 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/12 17:34:29 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/06 11:26:11 by egun              #+#    #+#             */
+/*   Updated: 2022/01/10 18:03:33 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*str;
-	size_t	i;
-	size_t	strsayac;
+	char		*str;
+	size_t		i;
+	size_t		x;
 
-	i = -1;
-	strsayac = -1;
+	i = start;
+	x = 0;
 	if (!s)
-		return (0);
-	if (start >= ft_strlen((char *)s))
-		return (ft_strdup(""));
+		return (NULL);
 	if (len > ft_strlen(s))
-		str = malloc(sizeof(char) * ft_strlen(s) + 1);
-	else
-		str = malloc(sizeof(char) * len + 1);
-	if (!str)
-		return (0);
-	while (s[start] && ++i <= len)
+		len = ft_strlen(s);
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (!str || !s)
+		return (NULL);
+	while (i <= ft_strlen(s) && len > x)
 	{
-		str[++strsayac] = (char)s[start];
-		start++;
+		str[x] = s[i];
+		x++;
+		i++;
 	}
-	str[len] = '\0';
+	str[x] = '\0';
 	return (str);
 }

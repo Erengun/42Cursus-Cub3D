@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erengun <erengun@student.42.fr>            +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 00:08:05 by erengun           #+#    #+#             */
-/*   Updated: 2023/06/01 15:15:01 by erengun          ###   ########.fr       */
+/*   Created: 2023/05/25 00:08:05 by egun              #+#    #+#             */
+/*   Updated: 2023/06/01 18:10:45 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-//TODO: free_func is not working properly
 void	free_func(t_data *data, int control_data)
 {
 	if (control_data & xpm)

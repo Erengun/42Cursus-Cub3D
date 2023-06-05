@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 10:32:27 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/03 19:43:10 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/03 11:09:28 by egun              #+#    #+#             */
+/*   Updated: 2022/01/04 12:49:16 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isalnum(int str)
 {
-	if (ft_isalpha(str) || ft_isdigit(str))
+	if (ft_isdigit(str) || ft_isalpha(str))
 		return (1);
 	return (0);
 }

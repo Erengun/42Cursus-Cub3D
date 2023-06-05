@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 03:43:51 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/09 03:59:40 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/09 17:45:07 by egun              #+#    #+#             */
+/*   Updated: 2022/01/10 14:41:45 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	if (lst == NULL)
-		return (0);
-	while (lst->next != NULL)
+	while (lst && lst->next)
 		lst = lst->next;
 	return (lst);
 }

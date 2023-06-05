@@ -3,84 +3,79 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+         #
+#    By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/01/03 18:01:52 by saksoy            #+#    #+#              #
-#    Updated: 2022/01/13 13:42:50 by saksoy           ###   ########.fr        #
+#    Created: 2022/01/04 11:28:34 by egun              #+#    #+#              #
+#    Updated: 2022/01/12 19:18:48 by egun             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-list=ft_isalnum.c \
-		ft_isalpha.c \
+list = ft_bzero.c \
+		ft_isalnum.c \
+		ft_isalpha.c\
 		ft_isascii.c \
 		ft_isdigit.c \
 		ft_isprint.c \
 		ft_memcpy.c \
 		ft_memset.c \
 		ft_strchr.c \
+		ft_strlcat.c \
+		ft_strlcpy.c \
+		ft_strlen.c \
+		ft_strncmp.c \
+		ft_strnstr.c \
 		ft_strrchr.c \
 		ft_tolower.c \
 		ft_toupper.c \
-		ft_strncmp.c \
+		ft_memmove.c \
 		ft_memchr.c \
 		ft_memcmp.c \
-		ft_strnstr.c \
-		ft_strlen.c \
-		ft_bzero.c \
-		ft_strdup.c \
 		ft_atoi.c \
+		ft_strdup.c \
 		ft_calloc.c \
-		ft_strlcpy.c \
-		ft_strlcat.c \
 		ft_substr.c \
 		ft_strjoin.c \
 		ft_strtrim.c \
-		ft_memmove.c \
-		ft_putchar_fd.c \
-		ft_putstr_fd.c \
 		ft_split.c \
+		ft_putchar_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
+		ft_putstr_fd.c \
 		ft_itoa.c \
 		ft_strmapi.c \
 		ft_striteri.c
 
-
-bonuslist = ft_lstnew.c \
-			ft_lstadd_front.c \
-			ft_lstsize.c \
-			ft_lstlast.c \
+Bonus_src = ft_lstnew.c \
 			ft_lstadd_back.c \
+			ft_lstlast.c \
+			ft_lstsize.c \
+			ft_lstadd_front.c \
 			ft_lstdelone.c \
-			ft_lstclear.c \
-			ft_lstiter.c \
+			ft_lstclear.c\
+			ft_lstiter.c\
 			ft_lstmap.c
+			
+B_obj = $(Bonus_src:.c=.o)
 OBJS = $(list:.c=.o)
-bonusobj = $(bonuslist:.c=.o)
-
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
 
-all: $(NAME)
-
-.c.o:
-	$(CC) -c $(CFLAGS) $<
+all:$(NAME)
 
 $(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 
+%.o : %.c
+	$(CC) $(CFLAGS)  -c $<	-o $@ 
 clean:
-	rm -f $(OBJS) $(bonusobj)
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(B_obj)
 
+bonus : $(OBJS) $(B_obj)
+	ar -rcs $(NAME) $(OBJS) $(B_obj)
 re:fclean $(NAME)
 
-bonus:  $(bonusobj) $(OBJS)
-	ar -rcs $(NAME) $(bonusobj) $(OBJS)
-
-norm:
-	norminette *.[ch]
-.PHONY: clean fclean all re bonus norm
+.PHONY: clean fclean all re bonus

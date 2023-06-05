@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*   By: egun <egun@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 10:32:27 by saksoy            #+#    #+#             */
-/*   Updated: 2022/01/03 19:43:09 by saksoy           ###   ########.fr       */
+/*   Created: 2022/01/03 10:39:10 by egun              #+#    #+#             */
+/*   Updated: 2022/01/04 12:47:23 by egun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isalpha(int str)
 {
-	if ((str >= 'A' && str <= 'Z') || (str >= 'a' && str <= 'z'))
+	if ((str >= 'a' && str <= 'z') || (str >= 'A' && str <= 'Z'))
 		return (1);
 	return (0);
 }
